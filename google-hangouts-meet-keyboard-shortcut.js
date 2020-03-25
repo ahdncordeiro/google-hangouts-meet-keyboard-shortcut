@@ -10,7 +10,7 @@ function doc_keyDown(e) {
 }
 
 // register the handler 
-if ((shouldAddEventListener == null ? true : shouldAddEventListener)) {
+if ((shouldAddEventListener === null ? true : shouldAddEventListener)) {
   shouldAddEventListener = false;
   console.log("Adding Google Hangouts Meet [Open More Options menu] keyboard shortcuts event listener...")
   document.addEventListener('keydown', doc_keyDown, false);
