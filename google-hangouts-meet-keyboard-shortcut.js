@@ -4,12 +4,14 @@ var shouldAddEventListener;
 function doc_keyDown(e) {
   console.log("Keyboard pressed.");
   console.log(e.keyCode);
-  // Test if keyCode 220 (\) was pressed
-  if (e.keyCode == 220) { // Test if keyCode 220 (\) was pressed
+  
+  if (e.keyCode == 13) { // Test if keyCode 13 (enter) was pressed
+    document.evaluate("//span[contains(., 'Join now')]", document, null, XPathResult.ANY_TYPE, null).iterateNext().click();
+  } else if (e.keyCode == 220) { // Test if keyCode 220 (\) was pressed
     console.log("Keyboard to press More Options menu.");
     document.querySelector("[data-tooltip='More options']").click()
   } else if (e.keyCode == 221) { // Test if keyCode 221 (]) was pressed
-    console.log("Keyboard to press More Options menu.");
+    console.log("Keyboard to press view all cameras menu.");
     document.querySelector("[class*='__gmgv-button']").click()
   }
 }
@@ -17,7 +19,7 @@ function doc_keyDown(e) {
 // register the handler 
 if ((shouldAddEventListener == null ? true : shouldAddEventListener)) {
   shouldAddEventListener = false;
-  console.log("Adding Google Hangouts Meet [Open More Options menu] keyboard shortcuts event listener...")
+  console.log("Adding Google Hangouts Meet [Open More Options, view all cameras, join meet] keyboard shortcuts event listener...")
   document.addEventListener('keydown', doc_keyDown, false);
 }
 
